@@ -33,7 +33,7 @@ Might have to use sudo for the command to work correctly.
 
 + Clone the repo:
 
-      git clone https://github.com/santimuriado/GamesGo.git
+      git clone https://github.com/santimuriado/GoGame.git
     
 + Generate the go.sum with:
 
