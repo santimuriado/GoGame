@@ -1,4 +1,4 @@
-# GamesGo
+# GoGame
 
 GoGame was started with the idea to get acquainted with Golang and make something fun in the process.
 Games currently run on SDL2 which is a library written in C and has bindings available for Go but also other
