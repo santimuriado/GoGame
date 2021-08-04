@@ -20,6 +20,9 @@ jobs:
         
     - name: Download SDL2
       run: sudo apt install libsdl2{,-image,-mixer,-ttf,-gfx}-dev
+      
+    - name: Download libraries
+      run: go mod tidy
 
     - name: Build
       run: go build -v ./...
