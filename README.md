@@ -1,4 +1,4 @@
-# GamesGo
+# GoGame
 
 GoGame was started with the idea to get acquainted with Golang and make something fun in the process.
 Games currently run on SDL2 which is a library written in C and has bindings available for Go but also other
@@ -33,7 +33,7 @@ Might have to use sudo for the command to work correctly.
 
 + Clone the repo:
 
-      git clone https://github.com/santimuriado/GamesGo.git
+      git clone https://github.com/santimuriado/GoGame.git
     
 + Generate the go.sum with:
 
