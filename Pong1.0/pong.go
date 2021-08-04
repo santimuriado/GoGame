@@ -77,12 +77,14 @@ func (ball *ball) update(leftPaddle *paddle, rightPaddle *paddle) {
 	}
 
 	if int(ball.x)-ball.radius < int(leftPaddle.x)+rightPaddle.width/2 {
-		if int(ball.y) > int(leftPaddle.y)-leftPaddle.height/2 && int(ball.y) < int(leftPaddle.y)+leftPaddle.height/2 {
+		if int(ball.y) > int(leftPaddle.y)-leftPaddle.height/2 &&
+			int(ball.y) < int(leftPaddle.y)+leftPaddle.height/2 {
 			ball.vx = -ball.vx
 		}
 	}
 	if int(ball.x)+ball.radius > int(rightPaddle.x)-rightPaddle.width/2 {
-		if int(ball.y) > int(rightPaddle.y)-rightPaddle.height/2 && int(ball.y) < int(rightPaddle.y)+rightPaddle.height/2 {
+		if int(ball.y) > int(rightPaddle.y)-rightPaddle.height/2 &&
+			int(ball.y) < int(rightPaddle.y)+rightPaddle.height/2 {
 			ball.vx = -ball.vx
 		}
 	}
@@ -175,7 +177,12 @@ func main() {
 	renderer, err := sdl.CreateRenderer(window, -1, sdl.RENDERER_ACCELERATED)
 	errorCheck(err)
 
-	tex, err := renderer.CreateTexture(sdl.PIXELFORMAT_ABGR8888, sdl.TEXTUREACCESS_STREAMING, int32(WIDTH), int32(HEIGHT))
+	tex, err := renderer.CreateTexture(
+		sdl.PIXELFORMAT_ABGR8888,
+		sdl.TEXTUREACCESS_STREAMING,
+		int32(WIDTH),
+		int32(HEIGHT),
+	)
 	errorCheck(err)
 
 	pixels := make([]byte, WIDTH*HEIGHT*PIXELFORMAT)

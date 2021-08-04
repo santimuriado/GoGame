@@ -58,15 +58,26 @@ func destroy(tex *sdl.Texture, renderer *sdl.Renderer, window *sdl.Window) {
 
 func main() {
 
-	window, err := sdl.CreateWindow("Testing SDL2", sdl.WINDOWPOS_UNDEFINED, sdl.WINDOWPOS_UNDEFINED,
-		int32(WIDTH), int32(HEIGHT), sdl.WINDOW_SHOWN)
+	window, err := sdl.CreateWindow(
+		"Testing SDL2",
+		sdl.WINDOWPOS_UNDEFINED,
+		sdl.WINDOWPOS_UNDEFINED,
+		int32(WIDTH),
+		int32(HEIGHT),
+		sdl.WINDOW_SHOWN,
+	)
 	errorCheck(err)
 
 	//With a GPU the renderer is ACCELERATED if not it's SOFTWARE.
 	renderer, err := sdl.CreateRenderer(window, -1, sdl.RENDERER_ACCELERATED)
 	errorCheck(err)
 
-	tex, err := renderer.CreateTexture(sdl.PIXELFORMAT_ABGR8888, sdl.TEXTUREACCESS_STREAMING, int32(WIDTH), int32(HEIGHT))
+	tex, err := renderer.CreateTexture(
+		sdl.PIXELFORMAT_ABGR8888,
+		sdl.TEXTUREACCESS_STREAMING,
+		int32(WIDTH),
+		int32(HEIGHT),
+	)
 	errorCheck(err)
 
 	//PIXELFORMAT is 4 for each primary color and alpha.

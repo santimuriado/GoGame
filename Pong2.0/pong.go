@@ -196,7 +196,8 @@ func (ball *ball) update(leftPaddle *paddle, rightPaddle *paddle, duration float
 		}
 	}
 	if ball.x+ball.radius > rightPaddle.x-rightPaddle.width/2 {
-		if ball.y > rightPaddle.y-rightPaddle.height/2 && ball.y < rightPaddle.y+rightPaddle.height/2 {
+		if ball.y > rightPaddle.y-rightPaddle.height/2 &&
+			ball.y < rightPaddle.y+rightPaddle.height/2 {
 			ball.vx = -ball.vx
 			ball.x = rightPaddle.x - rightPaddle.width/2.0 - ball.radius
 
@@ -364,7 +365,12 @@ func main() {
 	renderer, err := sdl.CreateRenderer(window, -1, sdl.RENDERER_ACCELERATED)
 	errorCheck(err)
 
-	tex, err := renderer.CreateTexture(sdl.PIXELFORMAT_ABGR8888, sdl.TEXTUREACCESS_STREAMING, int32(WIDTH), int32(HEIGHT))
+	tex, err := renderer.CreateTexture(
+		sdl.PIXELFORMAT_ABGR8888,
+		sdl.TEXTUREACCESS_STREAMING,
+		int32(WIDTH),
+		int32(HEIGHT),
+	)
 	errorCheck(err)
 
 	defer destroy(tex, renderer, window)
@@ -375,12 +381,29 @@ func main() {
 	controllers(controllerHandler)
 
 	//CREATES PLAYERS AND BALL.
-	player1 := paddle{position{50, float32(HALFHEIGHT)}, float32(PADDLEWIDTH), float32(PADDLEHEIGHT),
-		float32(PADDLESPEED), 0, color{255, 0, 0}}
-	player2 := paddle{position{float32(WIDTH) - 50, float32(HALFHEIGHT)}, float32(PADDLEWIDTH), float32(PADDLEHEIGHT),
-		float32(PADDLESPEED), 0, color{0, 255, 0}}
-	ball := ball{position{float32(HALFWIDTH), float32(HALFHEIGHT)}, float32(BALLRADIUS), XVELOCITY, YVELOCITY,
-		color{0, 0, 255}}
+	player1 := paddle{
+		position{50, float32(HALFHEIGHT)},
+		float32(PADDLEWIDTH),
+		float32(PADDLEHEIGHT),
+		float32(PADDLESPEED),
+		0,
+		color{255, 0, 0},
+	}
+	player2 := paddle{
+		position{float32(WIDTH) - 50, float32(HALFHEIGHT)},
+		float32(PADDLEWIDTH),
+		float32(PADDLEHEIGHT),
+		float32(PADDLESPEED),
+		0,
+		color{0, 255, 0},
+	}
+	ball := ball{
+		position{float32(HALFWIDTH), float32(HALFHEIGHT)},
+		float32(BALLRADIUS),
+		XVELOCITY,
+		YVELOCITY,
+		color{0, 0, 255},
+	}
 
 	keyState := sdl.GetKeyboardState()
 
